@@ -24,6 +24,22 @@
         ctx.fillStyle = 'red';
         ctx.fillText('dror', 100, 100);
         ctx.fillRect(200, 150, 150, 75);
+
+        btnDisplay.addEventListener('click', function(){
+            const dataURI = myCanvas.toDataURL('image/jpeg');
+            imgConverted.src = dataURI;
+
+            console.log(dataURI);
+        });
+
+        btnDownload.addEventListener('click', function(){
+            const a = document.createElement('a');
+            document.body.appendChild(a);
+            a.href = myCanvas.toDataURL();
+            a.download = 'canvas-image.png';
+            a.click();
+            document.body.removeChild(a);
+        });
     </script>
 </body>
 </html>
